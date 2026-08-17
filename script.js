@@ -6,17 +6,83 @@ const MoedaSelecionada1 = document.querySelector("#moeda-de-entrada")
 const MoedaSelecionada2 = document.querySelector("#moeda-de-saida")
 
 const TipoDaMoeda = {
-    BRL: { nome: "Real", imagem: "./assets/real.png", taxa: 1, simbulo: "R$", },
-    USD: { nome: "Dólar Americano", imagem: "./assets/dollar.png", taxa: 5.40, simbulo: "US$", },
-    EUR: { nome: "Euro", imagem: "./assets/euro.png", taxa: 6.30, simbulo: "€", },
-    GBP: { nome: "Libra Esterlina", imagem: "./assets/libra.png", taxa: 7.10, simbulo: "£", },
-    ARS: { nome: "Peso Argentino", imagem: "./assets/peso-argentino.png", taxa: 0.006, simbulo: "$", },
-    CAD: { nome: "Dólar Canadense", imagem: "./assets/dollar-canadense.png", taxa: 4.10, simbulo: "CA$", },
-    AUD: { nome: "Dólar Australiano", imagem: "./assets/dollar-australiano.png", taxa: 3.70, simbulo: "A$", },
-    JPY: { nome: "Iene Japonês", imagem: "./assets/iene.png", taxa: 0.038, simbulo: "¥", },
-    CHF: { nome: "Franco Suíço", imagem: "./assets/franco-suico.png", taxa: 6.25, simbulo: "CHF", },
-    CNY: { nome: "Yuán Chinês", imagem: "./assets/yuan.png", taxa: 0.78, simbulo: "¥", },
-    BTC: { nome: "Bitcoin", imagem: "./assets/bitcoin.png", taxa: 350000.00, simbulo: "₿", } // Valor simbólico de exemplo
+
+    BRL: {
+        nome: "Real Brasileiro",
+        imagem: "./assets/real.png",
+        taxa: 1,
+        simbulo: "R$"
+    },
+
+    USD: {
+        nome: "Dólar Americano",
+        imagem: "./assets/dollar.png",
+        taxa: 5.1191,
+        simbulo: "US$"
+    },
+
+    EUR: {
+        nome: "Euro",
+        imagem: "./assets/euro.png",
+        taxa: 5.82861,
+        simbulo: "€"
+    },
+
+    GBP: {
+        nome: "Libra Esterlina",
+        imagem: "./assets/libra.png",
+        taxa: 6.802,
+        simbulo: "£"
+    },
+
+    ARS: {
+        nome: "Peso Argentino",
+        imagem: "./assets/peso-argentino.png",
+        taxa: 0.004033,
+        simbulo: "$"
+    },
+
+    CAD: {
+        nome: "Dólar Canadense",
+        imagem: "./assets/dollar-canadense.png",
+        taxa: 3.65,
+        simbulo: "CA$"
+    },
+
+    AUD: {
+        nome: "Dólar Australiano",
+        imagem: "./assets/dollar-australiano.png",
+        taxa: 3.57032,
+        simbulo: "A$"
+    },
+
+    JPY: {
+        nome: "Iene Japonês",
+        imagem: "./assets/iene.png",
+        taxa: 0.03124,
+        simbulo: "¥"
+    },
+
+    CHF: {
+        nome: "Franco Suíço",
+        imagem: "./assets/franco-suico.png",
+        taxa: 6.20891,
+        simbulo: "CHF"
+    },
+
+    CNY: {
+        nome: "Yuan Chinês",
+        imagem: "./assets/yuan.png",
+        taxa: 0.7571,
+        simbulo: "¥"
+    },
+
+    BTC: {
+        nome: "Bitcoin",
+        imagem: "./assets/bitcoin.png",
+        taxa: 329000,
+        simbulo: "₿"
+    }
 };
 
 //função converter moeda
