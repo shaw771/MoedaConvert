@@ -59,7 +59,7 @@ const TipoDaMoeda = {
     JPY: {
         nome: "Iene Japonês",
         imagem: "./assets/iene.png",
-        taxa: 0.03124,
+        taxa: 0.032, 
         simbulo: "¥"
     },
 
@@ -93,26 +93,28 @@ function funcaoConverterMoeda(){
     const MoedaDeSaida = document.querySelector("#moeda-de-saida").value
     const valorParaConverte2 = document.querySelector(".valor-convertido")
     const ValorParaMudas1 = document.querySelector(".valor-para-converter")
-    //vareavel muedas calculadas
+    
+    // Variavel moedas calculadas
     const ValorConvertido = inputValorInserido * TipoDaMoeda[MoedaDeEntrada].taxa / TipoDaMoeda[MoedaDeSaida].taxa       
     const ValoraConverter = inputValorInserido * 1
-    //Muda o simbulo conforme a busca
-    ValorParaMudas1.innerHTML = TipoDaMoeda[MoedaDeEntrada].simbulo
-    valorParaConverte2.innerHTML = TipoDaMoeda[MoedaDeSaida].simbulo
-    //Mudas os elementos HTML, os numeros ja calculados 
 
-
-    // 3. Define quantas casas decimais usar (8 para Bitcoin, 2 para moedas normais)
-    const casasDecimaisEntrada = MoedaDeEntrada === "BTC" ? 8 : 2;
-    const casasDecimaisSaida = MoedaDeSaida === "BTC" ? 8 : 2;
+    // 3. Define dinamicamente as casas decimais usando Intl.NumberFormat
+    // Criamos uma lista de moedas que NÃO usam centavos (Zero Decimal Currencies)
+    const moedasSemDecimais = ["JPY"]; // Se adicionar moedas como CLP ou KRW no futuro, coloque-as aqui
 
     // 4. Formata e exibe a Moeda de Entrada (Esquerda)
     if (MoedaDeEntrada === "BTC") {
-        ValorParaMudas1.innerHTML = `₿ ${inputValorInserido.toFixed(8)}`;
+        // Correção para o Bitcoin não sumir com o texto do elemento
+        ValorParaMudas1.innerHTML = `₿ ${parseFloat(inputValorInserido).toFixed(8)}`;
     } else {
+        // Verifica se a moeda de entrada está na lista das sem centavos
+        const decimaisEntrada = moedasSemDecimais.includes(MoedaDeEntrada) ? 0 : 2;
+        
         ValorParaMudas1.innerHTML = new Intl.NumberFormat('pt-BR', {
             style: 'currency',
-            currency: MoedaDeEntrada
+            currency: MoedaDeEntrada,
+            minimumFractionDigits: decimaisEntrada,
+            maximumFractionDigits: decimaisEntrada
         }).format(inputValorInserido);
     }
 
@@ -120,16 +122,16 @@ function funcaoConverterMoeda(){
     if (MoedaDeSaida === "BTC") {
         valorParaConverte2.innerHTML = `₿ ${ValorConvertido.toFixed(8)}`;
     } else {
-        valorParaConverte2.innerHTML = new Intl.NumberFormat('pt-br', {
+        // Verifica se a moeda de saída está na lista das sem centavos
+        const decimaisSaida = moedasSemDecimais.includes(MoedaDeSaida) ? 0 : 2;
+
+        valorParaConverte2.innerHTML = new Intl.NumberFormat('pt-BR', {
             style: 'currency',
-            currency: MoedaDeSaida
+            currency: MoedaDeSaida,
+            minimumFractionDigits: decimaisSaida,
+            maximumFractionDigits: decimaisSaida
         }).format(ValorConvertido);
     }
-    
- 
-
-    
-   
 }
 //Função para mudar os nomes e imagens das moedas quando forem mudadas
 function funcaoBuscaTipoMoeda(){
