@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <!-- LINK FONT Google-->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+         <!-- link style -->
+            <link rel="stylesheet" href="style.css">
+            <title>Carlos - Converso de Moeda JavaScrit</title>
+        </head>
+        <body>
+           
+            <main>
+                <div class="area-select">  
+                <label>
+                    <p>Converter <b>de</b></p>
+                    <select id="moeda-de-entrada" class="moeda-de-entrada">
+                        <option value="BRL">Real R$</option>
+                        <option value="USD">Dólar US$</option>
+                        <option value="EUR">Euro €</option>
+                        <option value="GBP">Libra £</option>
+                        <option value="ARS">Peso Argentino $</option>
+                        <option value="CAD">Dólar Canadense $</option>
+                        <option value="AUD">Dólar Australiano $</option>
+                        <option value="JPY">Iene ¥</option>
+                        <option value="CHF">Franco Suíço Fr</option>
+                        <option value="CNY">Yuán Chinês ¥</option>
+                        <option value="BTC">Bitcoin ₿</option>
+                    </select>
+                </label>
+
+                <label>
+                    <p>Converter <b>para</b></p>
+                    <select id="moeda-de-saida">
+                        <option value="BRL">Real R$</option>
+                        <option value="USD">Dólar US$</option>
+                        <option value="EUR">Euro €</option>
+                        <option value="GBP">Libra £</option>
+                        <option value="ARS">Peso Argentino $</option>
+                        <option value="CAD">Dólar Canadense $</option>
+                        <option value="AUD">Dólar Australiano $</option>
+                        <option value="JPY">Iene ¥</option>
+                        <option value="CHF">Franco Suíço Fr</option>
+                        <option value="CNY">Yuán Chinês ¥</option>
+                        <option value="BTC">Bitcoin ₿</option>
+                    </select>
+                </label>
+                </div>
+                <label>
+                    Valor
+                    <input type="number" class="input-valor-inserido" placeholder="R$ 10.000,00" type="">
+                </label>
+
+                <button class="botao-de-converter"  id="botao-converter">Converter</button>
+
+                <section class="sessao-conversao">
+                    <div class="currency-box">
+                        <img class="currency-img1" src="./assets/real.png" alt="logo-moeda-a-converter">
+                        <p class="currency"id="nome-moeda-entrada">Real</p>
+                        <p class="valor-para-converter">R$ 0,00</p>
+                    </div>
+                    
+                    <img class="arrow-img" src="./assets/arrow.png" alt="">
+
+                    <div class="currency-box">
+                        <img class="currency-img2" src="./assets/dollar.png" alt="logo-moeda-a-converter">
+                        <p id="nome-moeda-saida" class="currency">Dólar americano</p>
+                        <p class="valor-convertido">US$ 0.0</p>
+                    </div>
+                </section>
+            </main>
+                             <!-- link script -->
+            <script src="./script.js"></script>
+        </body>
+   
+    </html>
