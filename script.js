@@ -34,16 +34,35 @@ function funcaoConverterMoeda(){
     ValorParaMudas1.innerHTML = TipoDaMoeda[MoedaDeEntrada].simbulo
     valorParaConverte2.innerHTML = TipoDaMoeda[MoedaDeSaida].simbulo
     //Mudas os elementos HTML, os numeros ja calculados 
+
+
+    // 3. Define quantas casas decimais usar (8 para Bitcoin, 2 para moedas normais)
+    const casasDecimaisEntrada = MoedaDeEntrada === "BTC" ? 8 : 2;
+    const casasDecimaisSaida = MoedaDeSaida === "BTC" ? 8 : 2;
+
+    // 4. Formata e exibe a Moeda de Entrada (Esquerda)
+    if (MoedaDeEntrada === "BTC") {
+        ValorParaMudas1.innerHTML = `₿ ${inputValorInserido.toFixed(8)}`;
+    } else {
+        ValorParaMudas1.innerHTML = new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: MoedaDeEntrada
+        }).format(inputValorInserido);
+    }
+
+    // 5. Formata e exibe a Moeda de Saída / Convertida (Direita)
+    if (MoedaDeSaida === "BTC") {
+        valorParaConverte2.innerHTML = `₿ ${ValorConvertido.toFixed(8)}`;
+    } else {
+        valorParaConverte2.innerHTML = new Intl.NumberFormat('pt-br', {
+            style: 'currency',
+            currency: MoedaDeSaida
+        }).format(ValorConvertido);
+    }
     
-    ValorParaMudas1.innerHTML = new Intl.NumberFormat(MoedaDeSaida,{
-        style: "currency",
-        currency: MoedaDeSaida
-    }).format(ValoraConverter);
+ 
+
     
-    valorParaConverte2.innerHTML = new Intl.NumberFormat(MoedaDeEntrada,{
-        style: "currency",
-        currency: MoedaDeEntrada
-    }).format(ValorConvertido);
    
 }
 //Função para mudar os nomes e imagens das moedas quando forem mudadas
