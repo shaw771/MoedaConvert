@@ -93,10 +93,12 @@ function funcaoConverterMoeda(){
     const MoedaDeSaida = document.querySelector("#moeda-de-saida").value
     const valorParaConverte2 = document.querySelector(".valor-convertido")
     const ValorParaMudas1 = document.querySelector(".valor-para-converter")
-    
-    // Variavel moedas calculadas
-    const ValorConvertido = inputValorInserido * TipoDaMoeda[MoedaDeEntrada].taxa / TipoDaMoeda[MoedaDeSaida].taxa       
-    const ValoraConverter = inputValorInserido * 1
+
+        // VERSÃO CORRIGIDA: Multiplica pela taxa da moeda de entrada e divide pela de saída ao contrário
+    const ValorConvertido = (inputValorInserido * TipoDaMoeda[MoedaDeEntrada].taxa) / TipoDaMoeda[MoedaDeSaida].taxa;
+
+ 
+    const ValoraConverter = inputValorInserido
 
     // 3. Define dinamicamente as casas decimais usando Intl.NumberFormat
     // Criamos uma lista de moedas que NÃO usam centavos (Zero Decimal Currencies)
