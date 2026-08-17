@@ -22,8 +22,8 @@ main{
     width: 375px;
     background: #51ca5a;
     border-radius: 20px;
-    padding: 44px 24px 23px;
-    /* margin antiga removida pois o flexbox já centraliza */
+    padding: 14px 24px 18px;
+    
 }
 
 .logo{
@@ -131,4 +131,17 @@ color: #ffffff;
     100% {
         background-image: url('./assets/logo.gif');
     }
+}
+.area-select h1{
+    color: #000000;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+.assinatura h2{
+    font-family: ui-serif;
+    margin-top: 6px;
+    font-size: 21px;
+    color: #000000;
+    font-style: italic;
+    border-bottom: 1px solid #000;
 }
